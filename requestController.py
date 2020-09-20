@@ -1,10 +1,13 @@
 import requests
 
 
-class RequestHandler:
-    def __init__(self, requestUrl):
-        self.requestUrl = requestUrl
 
-    def getData(self):
-        data = requests.get("https://opendata.ecdc.europa.eu/covid19/casedistribution/xml/")
+class RequestController:
+    def __init__(self, requesturl):
+        self.requestUrl = requesturl
+
+    def get_data(self):
+        page = requests.get(self.requestUrl)
+        data = page.content
         return data
+
