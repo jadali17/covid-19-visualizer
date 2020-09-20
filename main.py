@@ -1,10 +1,6 @@
-from requestController import RequestController
-import pandas as pd
+from flask import Flask
+from RequestController import RequestController
+import flask_routes
 
 if __name__ == '__main__':
-    url = "https://opendata.ecdc.europa.eu/covid19/casedistribution/json/"
-    requestHandler = RequestController(url)
-    data = requestHandler.get_data()
-    covidData = pd.read_json(data)
-    print(covidData)
-    #TODO Set up visualization on a webpage
+    flask_routes.flask_app.run(debug=True)
