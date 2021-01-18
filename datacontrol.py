@@ -44,9 +44,9 @@ def get_covid_data():
     soup = BeautifulSoup(resp.text,"html.parser")
     try:
         logging.info("Getting number of cases, deaths and recoveries")
-        cases = int(soup.select(".content-inner > div:nth-child(6) > div:nth-child(2) > span:nth-child(1)")[0].text.replace(',','')) #Replace to deal with comma seperated string numbers
-        deaths = int(soup.select(".content-inner > div:nth-child(7) > div:nth-child(2) > span:nth-child(1)")[0].text.replace(',',''))
-        recoveries = int(soup.select(".content-inner > div:nth-child(8) > div:nth-child(2) > span:nth-child(1)")[0].text.replace(',',''))
+        cases = soup.select(".content-inner > div:nth-child(6) > div:nth-child(2) > span:nth-child(1)")[0].text#Replace to deal with comma seperated string numbers cases = int(soup.select(".content-inner > div:nth-child(6) > div:nth-child(2) > span:nth-child(1)")[0].text.replace(',',''))
+        deaths = soup.select(".content-inner > div:nth-child(7) > div:nth-child(2) > span:nth-child(1)")[0].text
+        recoveries = soup.select(".content-inner > div:nth-child(8) > div:nth-child(2) > span:nth-child(1)")[0].text
         today = date.today()
         logging.info("Cases: {}   Deaths: {}    Recoveries: {}".format(cases,deaths,recoveries))
     except Exception as e:
