@@ -1,8 +1,11 @@
-2021-01-18 22:22:45.824 WARNING _internal - _log:  * Debugger is active!
-2021-01-18 22:22:45.824 INFO _internal - _log:  * Debugger PIN: 103-468-654
-2021-01-18 22:23:37.284 INFO datacontrol - get_covid_data: Getting Covid data from https://www.worldometers.info/coronavirus/country/lebanon/
-2021-01-18 22:23:37.284 INFO datacontrol - get_covid_data: Trying to get Url response
-2021-01-18 22:23:37.834 INFO datacontrol - get_covid_data: Getting number of cases, deaths and recoveries
-2021-01-18 22:23:37.844 INFO datacontrol - get_covid_data: Cases: 255,956    Deaths: 1,959    Recoveries: 154,608
-2021-01-18 22:23:37.848 INFO _internal - _log: 127.0.0.1 - - [18/Jan/2021 22:23:37] "[37mGET /home HTTP/1.1[0m" 200 -
-2021-01-18 22:23:37.883 INFO _internal - _log: 127.0.0.1 - - [18/Jan/2021 22:23:37] "[33mGET /styling.css HTTP/1.1[0m" 404 -
+2021-01-19 14:37:32.524 WARNING _internal - _log:  * Debugger is active!
+2021-01-19 14:37:32.525 INFO _internal - _log:  * Debugger PIN: 103-468-654
+2021-01-19 14:37:35.791 INFO datacontrol - get_covid_data: Getting Covid data from https://www.worldometers.info/coronavirus/country/lebanon/
+2021-01-19 14:37:35.791 INFO datacontrol - get_covid_data: Trying to get Url response
+2021-01-19 14:37:35.793 DEBUG connectionpool - _new_conn: Starting new HTTPS connection (1): www.worldometers.info:443
+2021-01-19 14:37:36.184 DEBUG connectionpool - _make_request: https://www.worldometers.info:443 "GET /coronavirus/country/lebanon/ HTTP/1.1" 200 None
+2021-01-19 14:37:36.451 INFO datacontrol - get_covid_data: Getting number of cases, deaths and recoveries
+2021-01-19 14:37:36.461 DEBUG datacontrol - get_covid_data: <daily.Daily object at 0x7fb0e6364460>
+2021-01-19 14:37:36.461 INFO datacontrol - get_covid_data: Cases: 255,956    Deaths: 1,959    Recoveries: 154,608
+2021-01-19 14:37:36.465 INFO _internal - _log: 127.0.0.1 - - [19/Jan/2021 14:37:36] "[37mGET /home HTTP/1.1[0m" 200 -
+2021-01-19 14:37:36.509 INFO _internal - _log: 127.0.0.1 - - [19/Jan/2021 14:37:36] "[33mGET /styling.css HTTP/1.1[0m" 404 -
