@@ -16,7 +16,7 @@ import models #needs to be imported after initializing db
 
 #-------QUERIES----------------#
 results = db_engine.execute("SELECT total_cases,total_deaths,total_recoveries FROM daily ORDER BY ID DESC LIMIT 1")
-previousCases, previousDeaths, previousRecoveries = results.first()
+previousCases, previousRecoveries, previousDeaths  = results.first()
 
 
 
@@ -30,8 +30,12 @@ def index():
 
 @app.route('/home')
 def home():
-	data = get_covid_data()
-	return render_template('main.html',cases = data.totalCases, deaths = data.totalDeaths, recoveries = data.totalRecoveries, today = data.date)
+    currentData = get_covid_data()
+    logger.debug(currentData.totalDeaths)
+    logger.debug(previousDeaths)
+    newDaily = models.Daily(currentData)
+    newDaily.calculate(previousCases, previousDeaths, previousRecoveries)
+    return render_template('main.html',cases = currentData.totalCases, deaths = currentData.totalDeaths, recoveries = currentData.totalRecoveries, today = currentData.date, dailyCases = newDaily.daily_cases, dailyDeaths= newDaily.daily_deaths, dailyRecoveries = newDaily.daily_recoveries )
 
 @app.route('/add')
 def dataAdd():
@@ -51,4 +55,4 @@ def dataAdd():
 
 #---------MAIN------------#
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="192.168.2.123",debug=True)
