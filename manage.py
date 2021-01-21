@@ -3,7 +3,7 @@ from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 
 from routes import app, db
-
+import models
 
 app.config.from_object('config.DevConfig')
 

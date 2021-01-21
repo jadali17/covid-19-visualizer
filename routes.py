@@ -3,13 +3,26 @@ from datacontrol import get_covid_data
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from datacontrol import logger
+from sqlalchemy import create_engine
+
+#-----------------INITIALIZATION-------------------#
 app = Flask(__name__)
 app.config.from_object('config.DevConfig')
 db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+db_engine = create_engine("postgresql://postgres:postgres@localhost:5432/covid"	)
 
-import models # should be placed here for it to migrate
+import models #needs to be imported after initializing db
 
+
+#-------QUERIES----------------#
+results = db_engine.execute("SELECT total_cases,total_deaths,total_recoveries FROM daily ORDER BY ID DESC LIMIT 1")
+previousCases, previousDeaths, previousRecoveries = results.first()
+
+
+
+
+
+#---------ROUTING---------------#
 @app.route('/')
 def index():
     data = get_covid_data()
@@ -22,9 +35,10 @@ def home():
 
 @app.route('/add')
 def dataAdd():
-    data = get_covid_data()
-    newDaily = models.Daily(totalCases = data.totalCases, totalDeaths = data.totalDeaths, totalRecoveries = data.totalRecoveries, today = str(data.date))
-    logger.info("Pushing {} to database".format(newDaily))
+    currentData = get_covid_data()
+    newDaily = models.Daily(currentData)
+    logger.info("Pushing totalCases:{} totalDeaths:{} totalRecoveries:{} to database".format(newDaily.total_cases, newDaily.total_deaths, newDaily.total_recoveries))
+    newDaily.calculate(previousCases, previousDeaths, previousRecoveries)
     try:
         db.session.add(newDaily)
         db.session.commit()
@@ -32,7 +46,9 @@ def dataAdd():
         logger.error("Key already exists")
         logger.error(e)
     
-    return "Success in adding{}".format(data)
+    return "Success in adding {}".format(newDaily)
 
+
+#---------MAIN------------#
 if __name__ == "__main__":
     app.run(debug=True)

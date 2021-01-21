@@ -3,7 +3,7 @@ import requests
 import logging
 import os
 from sys import platform
-from datetime import date
+import datetime
 from daily import Daily
 
 logger = logging
@@ -49,7 +49,7 @@ def get_covid_data():
         cases = soup.select(".content-inner > div:nth-child(6) > div:nth-child(2) > span:nth-child(1)")[0].text#Replace to deal with comma seperated string numbers cases = int(soup.select(".content-inner > div:nth-child(6) > div:nth-child(2) > span:nth-child(1)")[0].text.replace(',',''))
         deaths = soup.select(".content-inner > div:nth-child(7) > div:nth-child(2) > span:nth-child(1)")[0].text
         recoveries = soup.select(".content-inner > div:nth-child(8) > div:nth-child(2) > span:nth-child(1)")[0].text
-        today = date.today()
+        today = datetime.datetime.now()
         #TODO NEEDS VALIDATION HERE
         daily = Daily(cases, deaths, recoveries, today)
         logger.debug(f"{daily}")

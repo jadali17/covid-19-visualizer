@@ -1,14 +1,5 @@
 import os
 
-
-
-
-	
-
-	# AWS Secrets
-    # AWS_SECRET_KEY = environ.get('AWS_SECRET_KEY')
-    # AWS_KEY_ID = environ.get('AWS_KEY_ID')
-
 class Config:
     """Base config."""
     # SECRET_KEY = environ.get('SECRET_KEY')

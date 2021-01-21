@@ -8,3 +8,4 @@ class Daily:
 		self.dailyCases = self.totalCases - previousDay.totalCases 
 		self.dailyRecoveries = self.totalRecoveries - previousDay.totalRecoveries
 		self.dailyDeaths = self.totalDeaths - previousDay.totalDeaths
+
