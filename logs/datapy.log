@@ -1,33 +1,14 @@
-2021-01-21 20:42:11.846 WARNING _internal - _log:  * Debugger is active!
-2021-01-21 20:42:11.846 INFO _internal - _log:  * Debugger PIN: 100-027-127
-2021-01-21 20:42:12.634 INFO datacontrol - get_covid_data: Getting Covid data from https://www.worldometers.info/coronavirus/country/lebanon/
-2021-01-21 20:42:12.634 INFO datacontrol - get_covid_data: Trying to get Url response
-2021-01-21 20:42:12.637 DEBUG connectionpool - _new_conn: Starting new HTTPS connection (1): www.worldometers.info:443
-2021-01-21 20:42:13.051 DEBUG connectionpool - _make_request: https://www.worldometers.info:443 "GET /coronavirus/country/lebanon/ HTTP/1.1" 200 None
-2021-01-21 20:42:13.178 INFO datacontrol - get_covid_data: Getting number of cases, deaths and recoveries
-2021-01-21 20:42:13.189 DEBUG datacontrol - get_covid_data: <daily.Daily object at 0x7f5521d951c0>
-2021-01-21 20:42:13.189 INFO datacontrol - get_covid_data: Cases: 269,241    Deaths: 158,822    Recoveries: 2,151
-2021-01-21 20:42:13.189 DEBUG routes - home: 2,151
-2021-01-21 20:42:13.189 DEBUG routes - home: 2084
-2021-01-21 20:42:13.194 INFO _internal - _log: 192.168.2.119 - - [21/Jan/2021 20:42:13] "[37mGET /home HTTP/1.1[0m" 200 -
-2021-01-21 20:42:13.438 INFO _internal - _log: 192.168.2.119 - - [21/Jan/2021 20:42:13] "[33mGET /styling.css HTTP/1.1[0m" 404 -
-2021-01-21 20:42:43.120 INFO datacontrol - get_covid_data: Getting Covid data from https://www.worldometers.info/coronavirus/country/lebanon/
-2021-01-21 20:42:43.121 INFO datacontrol - get_covid_data: Trying to get Url response
-2021-01-21 20:42:43.122 DEBUG connectionpool - _new_conn: Starting new HTTPS connection (1): www.worldometers.info:443
-2021-01-21 20:42:43.557 DEBUG connectionpool - _make_request: https://www.worldometers.info:443 "GET /coronavirus/country/lebanon/ HTTP/1.1" 200 None
-2021-01-21 20:42:43.723 INFO datacontrol - get_covid_data: Getting number of cases, deaths and recoveries
-2021-01-21 20:42:43.732 DEBUG datacontrol - get_covid_data: <daily.Daily object at 0x7f5521d26490>
-2021-01-21 20:42:43.732 INFO datacontrol - get_covid_data: Cases: 269,241    Deaths: 158,822    Recoveries: 2,151
-2021-01-21 20:42:43.732 INFO routes - dataAdd: Pushing totalCases:269241 totalDeaths:2151 totalRecoveries:158822 to database
-2021-01-21 20:42:43.766 INFO _internal - _log: 192.168.2.119 - - [21/Jan/2021 20:42:43] "[37mGET /add HTTP/1.1[0m" 200 -
-2021-01-21 20:43:05.967 INFO datacontrol - get_covid_data: Getting Covid data from https://www.worldometers.info/coronavirus/country/lebanon/
-2021-01-21 20:43:05.967 INFO datacontrol - get_covid_data: Trying to get Url response
-2021-01-21 20:43:05.968 DEBUG connectionpool - _new_conn: Starting new HTTPS connection (1): www.worldometers.info:443
-2021-01-21 20:43:06.383 DEBUG connectionpool - _make_request: https://www.worldometers.info:443 "GET /coronavirus/country/lebanon/ HTTP/1.1" 200 None
-2021-01-21 20:43:06.562 INFO datacontrol - get_covid_data: Getting number of cases, deaths and recoveries
-2021-01-21 20:43:06.573 DEBUG datacontrol - get_covid_data: <daily.Daily object at 0x7f5522ec6220>
-2021-01-21 20:43:06.573 INFO datacontrol - get_covid_data: Cases: 269,241    Deaths: 158,822    Recoveries: 2,151
-2021-01-21 20:43:06.573 DEBUG routes - home: 2,151
-2021-01-21 20:43:06.573 DEBUG routes - home: 2084
-2021-01-21 20:43:06.573 INFO _internal - _log: 192.168.2.119 - - [21/Jan/2021 20:43:06] "[37mGET /home HTTP/1.1[0m" 200 -
-2021-01-21 20:43:06.776 INFO _internal - _log: 192.168.2.119 - - [21/Jan/2021 20:43:06] "[33mGET /styling.css HTTP/1.1[0m" 404 -
+2021-01-22 11:08:21.847 INFO base - add_job: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-01-22 11:08:21.848 INFO base - _real_add_job: Added job "dataAdd" to job store "default"
+2021-01-22 11:08:21.848 INFO base - start: Scheduler started
+2021-01-22 11:08:21.862 INFO base - add_job: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-01-22 11:08:21.862 INFO base - _real_add_job: Added job "dataAdd" to job store "default"
+2021-01-22 11:08:21.862 INFO base - start: Scheduler started
+2021-01-22 11:08:21.866 WARNING _internal - _log:  * Debugger is active!
+2021-01-22 11:08:21.866 INFO _internal - _log:  * Debugger PIN: 103-468-654
+2021-01-22 11:08:24.437 INFO datacontrol - get_covid_data: Getting Covid data from https://www.worldometers.info/coronavirus/country/lebanon/
+2021-01-22 11:08:24.437 INFO datacontrol - get_covid_data: Trying to get Url response
+2021-01-22 11:08:24.989 INFO datacontrol - get_covid_data: Getting number of cases, deaths and recoveries
+2021-01-22 11:08:25.000 INFO datacontrol - get_covid_data: Cases: 269,241    Deaths: 158,822    Recoveries: 2,151
+2021-01-22 11:08:25.005 INFO _internal - _log: 192.168.2.123 - - [22/Jan/2021 11:08:25] "[37mGET /home HTTP/1.1[0m" 200 -
+2021-01-22 11:08:25.033 INFO _internal - _log: 192.168.2.123 - - [22/Jan/2021 11:08:25] "[33mGET /styling.css HTTP/1.1[0m" 404 -

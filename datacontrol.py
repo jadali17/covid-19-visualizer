@@ -1,36 +1,36 @@
 from bs4 import BeautifulSoup
 import requests
 import logging
+from loggerModule import logger
 import os
 from sys import platform
 import datetime
-from daily import Daily
 
-logger = logging
-cwd = os.getcwd()
-if platform == "win32":
-    logger.basicConfig(
-        filename=cwd+'\logs\datapy.log',
-        level=logging.DEBUG,filemode='w',
-        format='%(asctime)s.%(msecs)03d %(levelname)s %(module)s - %(funcName)s: %(message)s',
-        datefmt='%Y-%m-%d %H:%M:%S')
-elif platform == "linux" or platform == "linux2":
-    logger.basicConfig(
-        filename=cwd+'/logs/datapy.log',
-        level=logging.DEBUG,filemode='w',
-        format='%(asctime)s.%(msecs)03d %(levelname)s %(module)s - %(funcName)s: %(message)s',
-        datefmt='%Y-%m-%d %H:%M:%S')
-        
+
+
+
 #------Allows us to log to console--------#
+
 formatter = logging.Formatter("%(asctime)s.%(msecs)03d %(levelname)s %(module)s - %(funcName)s: %(message)s", "%Y-%m-%d %H:%M:%S")
 console = logging.StreamHandler()
-console.setLevel(logging.DEBUG)
+console.setLevel(logging.INFO)
 console.setFormatter(formatter)
 # add the handler to the root logger
 logger.getLogger().addHandler(console)
-#-----------------------------------------#
 
+#--------CLASSES----------------#
+class Daily:
+	def __init__(self, totalCases, totalRecoveries, totalDeaths, today):
+		self.totalCases = totalCases
+		self.totalRecoveries = totalRecoveries
+		self.totalDeaths = totalDeaths
+		self.date = today
+	def calculate(self, previousDay):
+		self.dailyCases = self.totalCases - previousDay.totalCases 
+		self.dailyRecoveries = self.totalRecoveries - previousDay.totalRecoveries
+		self.dailyDeaths = self.totalDeaths - previousDay.totalDeaths
 
+#----------Functions----------------#
 def get_covid_data():
     url= "https://www.worldometers.info/coronavirus/country/lebanon/"
 
